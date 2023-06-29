@@ -4,14 +4,14 @@ from scipy.optimize import fsolve
 
 # State space representation
 def fx(x):
-    dx1_dt = -x[0]**3 + x[1]
-    dx2_dt = x[0]*x[1] - 1
+    dx1_dt = x[1]
+    dx2_dt = -9.81 * np.sin(x[0]) - 1.5 * x[1]
     return dx1_dt, dx2_dt
 
 Stationary_points = []
 
-lower = -5 # min
-upper =  5 # max
+lower = -8 # min
+upper =  8 # max
 inter = 10 # interpolation points
 
 # Search all the possible solutions by initial point [x1,x2]
