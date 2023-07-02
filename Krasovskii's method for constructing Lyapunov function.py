@@ -13,7 +13,7 @@ def generate_symbols(n):
 x = generate_symbols(n)
 
 # State space representation
-f = Matrix([[-x[0] + x[1] ** 2], [-x[1] - x[0] ** 3]])  # fill in
+f_x = Matrix([[-x[0] + x[1] ** 2], [-x[1] - x[0] ** 3]])  # fill in
 
 # symmetric, positive definite matrices P, R ∈ R^n
 P = Matrix([[1, 0], [0, 1]])  # fill in
@@ -22,7 +22,7 @@ R = Matrix([[1, 0], [0, 1]])  # fill in
 
 # Jacobian matrix
 def Ax():
-    return Matrix([f.jacobian(x)])
+    return Matrix([f_x.jacobian(x)])
 
 
 Ax = Ax()
@@ -51,7 +51,7 @@ print("Principle minors: ",principle_minors)
 
 # Lyapunov function
 def V():
-    return f.transpose() * f
+    return f_X.transpose() * f_x
 
 
 V = simplify(V()[0])
